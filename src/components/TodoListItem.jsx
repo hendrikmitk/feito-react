@@ -16,25 +16,27 @@ const TodoListItem = ({ todo, todos, setTodos }) => {
   };
 
   return (
-    <div className="todo-list-item">
-      <li className={`todo-item ${todo.completed ? 'todo-completed' : ''}`}>
-        {todo.text}
-      </li>
-      <button
-        onClick={toggleTodoHandler}
-        className="check-button"
-        type="button"
+    <li className="flex justify-between rounded-lg bg-blue-light px-6 py-5">
+      <div
+        className={`flex items-center space-x-4 ${
+          todo.completed && 'opacity-20'
+        }`}
       >
-        <i className="fas fa-check-circle"></i>
+        <button onClick={toggleTodoHandler}>
+          <i
+            className={`text-xl ${
+              todo.completed
+                ? 'fas fa-check-circle text-green-400'
+                : 'far fa-circle'
+            }`}
+          ></i>
+        </button>
+        <span className="inline-block">{todo.text}</span>
+      </div>
+      <button onClick={deleteTodoHandler} type="button">
+        <i className="fas fa-minus-circle text-xl text-red-400"></i>
       </button>
-      <button
-        onClick={deleteTodoHandler}
-        className="delete-button"
-        type="button"
-      >
-        <i className="fas fa-trash"></i>
-      </button>
-    </div>
+    </li>
   );
 };
 

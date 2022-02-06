@@ -7,11 +7,21 @@ module.exports = {
         'app-logo-spin': 'app-logo-spin infinite 20s linear',
       },
       colors: {
-        'react-blue': '#61dafb',
-        'react-gray': '#282c34',
+        blue: {
+          dark: '#191928',
+          light: '#222231',
+        },
+        green: {
+          dark: '#00a8b0',
+          light: '#06b4bc',
+        },
+        grey: {
+          dark: '#727272',
+          light: '#7b7b7b',
+        },
       },
       fontFamily: {
-        mukta: ['Mukta', 'sans-serif'],
+        spartan: ['Spartan', 'sans-serif'],
       },
       keyframes: {
         'app-logo-spin': {
@@ -28,5 +38,5 @@ module.exports = {
   variants: {
     extend: {},
   },
-  plugins: [],
+  plugins: [require('@tailwindcss/forms')],
 };

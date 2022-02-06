@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import Form from './components/Form';
+import TodoFilter from './components/TodoFilter';
+import TodoInput from './components/TodoInput';
 import TodoList from './components/TodoList';
 
 const App = () => {
@@ -41,24 +42,30 @@ const App = () => {
   };
 
   return (
-    <div id="content">
-      <div id="container" className="self-center rounded-xl">
-        <h1>feito.</h1>
-        <div id="todo-container">
-          <Form
-            inputText={inputText}
-            setInputText={setInputText}
-            todos={todos}
-            setTodos={setTodos}
-            setStatus={setStatus}
-          />
-          <TodoList
-            todos={todos}
-            setTodos={setTodos}
-            filteredTodos={filteredTodos}
-          />
-        </div>
+    <div
+      className={`flex min-h-screen flex-col justify-between bg-blue-dark px-6 py-8 font-spartan font-light text-white`}
+    >
+      <div className="overflow-y-hidden">
+        <h1 className="pt-8 pb-4 text-2xl">
+          {new Date().toLocaleDateString('en-us', {
+            weekday: 'long',
+            month: 'short',
+            day: 'numeric',
+          })}
+        </h1>
+        <TodoFilter setStatus={setStatus} />
+        <TodoList
+          todos={todos}
+          setTodos={setTodos}
+          filteredTodos={filteredTodos}
+        />
       </div>
+      <TodoInput
+        inputText={inputText}
+        setInputText={setInputText}
+        todos={todos}
+        setTodos={setTodos}
+      />
     </div>
   );
 };
