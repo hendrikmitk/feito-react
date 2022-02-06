@@ -11,7 +11,7 @@ module.exports = {
         'react-gray': '#282c34',
       },
       fontFamily: {
-        poppins: ['Poppins', 'sans-serif'],
+        mukta: ['Mukta', 'sans-serif'],
       },
       keyframes: {
         'app-logo-spin': {

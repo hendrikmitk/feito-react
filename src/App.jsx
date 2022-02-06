@@ -1,49 +1,64 @@
-import { useState } from 'react';
-import logo from './logo.svg';
-import Button from './components/Button';
-import Link from './components/Link';
+import React, { useState, useEffect } from 'react';
+import Form from './components/Form';
+import TodoList from './components/TodoList';
 
 const App = () => {
-  const [count, setCount] = useState(0);
+  const [inputText, setInputText] = useState('');
+  const [todos, setTodos] = useState([]);
+  const [status, setStatus] = useState('all');
+  const [filteredTodos, setFilteredTodos] = useState([]);
 
-  const buttonClickhandler = () => {
-    setCount((count) => count + 1);
+  useEffect(() => {
+    getLocalTodos();
+  }, []);
+
+  useEffect(() => {
+    filterHandler();
+    saveLocalTodos();
+  }, [todos, status]);
+
+  const filterHandler = () => {
+    switch (status) {
+      case 'completed':
+        setFilteredTodos(todos.filter((todo) => todo.completed));
+        break;
+      case 'uncompleted':
+        setFilteredTodos(todos.filter((todo) => !todo.completed));
+        break;
+      default:
+        setFilteredTodos(todos);
+        break;
+    }
+  };
+
+  const saveLocalTodos = () =>
+    localStorage.setItem('todos', JSON.stringify(todos));
+
+  const getLocalTodos = () => {
+    localStorage.getItem('todos') === null
+      ? localStorage.setItem('todos', JSON.stringify([]))
+      : setTodos(JSON.parse(localStorage.getItem('todos')));
   };
 
   return (
-    <div className="text-center font-poppins">
-      <header className="flex min-h-screen flex-col items-center justify-center bg-react-gray text-[calc(10px+2vmin)] text-white">
-        <img
-          src={logo}
-          className="pointer-events-none h-[40vmin] motion-safe:animate-app-logo-spin"
-          alt="logo"
-        />
-        <div className="space-y-12 py-6">
-          <p>Hello Vite + React + Tailwind!</p>
-          <p>
-            <Button count={count} onClick={buttonClickhandler} />
-          </p>
-          <p>
-            Edit <code>App.jsx</code> and save to test HMR updates.
-          </p>
-          <p>
-            <Link 
-              linkTitle="Learn React"
-              linkTarget="https://reactjs.org"
-            />
-            {' | '}
-            <Link
-              linkTitle="Vite Docs"
-              linkTarget="https://vitejs.dev/guide/"
-            />
-            {' | '}
-            <Link
-              linkTitle="Tailwind CSS"
-              linkTarget="https://tailwindcss.com"
-            />
-          </p>
+    <div id="content">
+      <div id="container" className="self-center rounded-xl">
+        <h1>feito.</h1>
+        <div id="todo-container">
+          <Form
+            inputText={inputText}
+            setInputText={setInputText}
+            todos={todos}
+            setTodos={setTodos}
+            setStatus={setStatus}
+          />
+          <TodoList
+            todos={todos}
+            setTodos={setTodos}
+            filteredTodos={filteredTodos}
+          />
         </div>
-      </header>
+      </div>
     </div>
   );
 };
