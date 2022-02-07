@@ -1,22 +1,12 @@
-# Vite + React + Tailwind CSS Starter
+# feito-react
 
-A starter template to spin up a Vite powered React app using Tailwind CSS.
+A simple to-do app built with React and Tailwind CSS.
 
 ## General info
 
-- Includes some examples of applying arbitrary value notation
-- Tailwind config extended with custom colors, fonts and animations
-- Comes with [prettier-plugin-tailwindcss](https://github.com/tailwindlabs/prettier-plugin-tailwindcss) pre-installed for formatting
+Rebuild one of my first beginner projects (a simple to-do app built with Vanilla Javascript) with React and Tailwind CSS.
 
 ## Project setup and usage
-
-To start a project from this template click the `Use This Template` button or use [degit](https://github.com/Rich-Harris/degit).
-
-### Clone template
-
-```shell
-npx degit github:hendrikmitk/vite-react-tailwind-starter
-```
 
 ### Install dependencies
 
