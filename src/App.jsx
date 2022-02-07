@@ -43,9 +43,9 @@ const App = () => {
 
   return (
     <div
-      className={`flex min-h-screen flex-col justify-between bg-blue-dark px-6 py-8 font-spartan font-light text-white`}
+      className={`bg-blue-dark font-spartan flex min-h-full flex-col justify-between px-6 py-8 font-light text-white`}
     >
-      <div className="overflow-y-hidden">
+      <div>
         <h1 className="pt-8 pb-4 text-2xl">
           {new Date().toLocaleDateString('en-us', {
             weekday: 'long',
