@@ -6,7 +6,7 @@ import TodoList from './components/TodoList';
 const App = () => {
   const [inputText, setInputText] = useState('');
   const [todos, setTodos] = useState([]);
-  const [status, setStatus] = useState('all');
+  const [filterStatus, setFilterStatus] = useState('all');
   const [filteredTodos, setFilteredTodos] = useState([]);
 
   useEffect(() => {
@@ -16,10 +16,10 @@ const App = () => {
   useEffect(() => {
     filterHandler();
     saveLocalTodos();
-  }, [todos, status]);
+  }, [todos, filterStatus]);
 
   const filterHandler = () => {
-    switch (status) {
+    switch (filterStatus) {
       case 'completed':
         setFilteredTodos(todos.filter((todo) => todo.completed));
         break;
@@ -53,7 +53,7 @@ const App = () => {
             day: 'numeric',
           })}
         </h1>
-        <TodoFilter setStatus={setStatus} />
+        <TodoFilter setFilterStatus={setFilterStatus} />
         <TodoList
           todos={todos}
           setTodos={setTodos}

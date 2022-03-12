@@ -1,8 +1,8 @@
 import React from 'react';
 
-const TodoFilter = ({ setStatus }) => {
+const TodoFilter = ({ setFilterStatus }) => {
   const statusHandler = (e) => {
-    setStatus(e.target.value);
+    setFilterStatus(e.target.value);
   };
 
   return (
