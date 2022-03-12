@@ -4,8 +4,9 @@ import {
   RadioButtonUnchecked,
   RemoveCircle,
 } from '@mui/icons-material';
+import Highlighter from 'react-highlight-words';
 
-const TodoListItem = ({ todo, todos, setTodos }) => {
+const TodoListItem = ({ todo, todos, setTodos, searchString }) => {
   const deleteTodoHandler = () => {
     setTodos(todos.filter((el) => el.id !== todo.id));
   };
@@ -34,7 +35,12 @@ const TodoListItem = ({ todo, todos, setTodos }) => {
             <RadioButtonUnchecked />
           )}
         </button>
-        <span className="inline-block">{todo.text}</span>
+        <Highlighter
+          highlightClassName="py-1 bg-yellow-300"
+          searchWords={[searchString]}
+          autoEscape={true}
+          textToHighlight={todo.text}
+        />
       </div>
       <button onClick={deleteTodoHandler} type="button">
         <RemoveCircle className="text-red-400" />

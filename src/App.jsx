@@ -64,6 +64,7 @@ const App = () => {
           todos={todos}
           setTodos={setTodos}
           filteredTodos={filteredTodos}
+          searchString={searchString}
         />
       </div>
       <TodoInput

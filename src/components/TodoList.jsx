@@ -1,7 +1,7 @@
 import React from 'react';
 import TodoListItem from './TodoListItem';
 
-const TodoList = ({ todos, setTodos, filteredTodos }) => {
+const TodoList = ({ todos, setTodos, filteredTodos, searchString }) => {
   return (
     <ul className="space-y-4 py-4">
       {filteredTodos.map((todo) => (
@@ -10,6 +10,7 @@ const TodoList = ({ todos, setTodos, filteredTodos }) => {
           todo={todo}
           todos={todos}
           setTodos={setTodos}
+          searchString={searchString}
         />
       ))}
     </ul>
