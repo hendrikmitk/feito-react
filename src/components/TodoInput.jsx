@@ -21,9 +21,9 @@ const TodoInput = ({ inputText, setInputText, todos, setTodos }) => {
   };
 
   return (
-    <form className="relative">
+    <form className="relative rounded-lg bg-green-dark">
       <input
-        className="w-full rounded-lg bg-green-dark px-6 py-5 pl-14 font-medium outline-none placeholder:font-medium placeholder:uppercase placeholder:text-white focus:ring-2 focus:ring-white focus:placeholder:text-transparent"
+        className="inset-0 w-full rounded-lg border-none bg-transparent px-6 py-5 pl-16 font-medium placeholder:font-medium placeholder:uppercase placeholder:text-white focus:ring-2 focus:ring-white focus:placeholder:text-transparent"
         value={inputText}
         onChange={inputTextHandler}
         type="text"
