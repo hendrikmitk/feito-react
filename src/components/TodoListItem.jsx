@@ -1,4 +1,5 @@
 import React from 'react';
+import { CheckCircle, RadioButtonUnchecked } from '@mui/icons-material';
 
 const TodoListItem = ({ todo, todos, setTodos }) => {
   const deleteTodoHandler = () => {
@@ -23,13 +24,11 @@ const TodoListItem = ({ todo, todos, setTodos }) => {
         }`}
       >
         <button onClick={toggleTodoHandler}>
-          <i
-            className={`text-xl ${
-              todo.completed
-                ? 'fas fa-check-circle text-green-400'
-                : 'far fa-circle'
-            }`}
-          ></i>
+          {todo.completed ? (
+            <CheckCircle className="text-green-400" />
+          ) : (
+            <RadioButtonUnchecked />
+          )}
         </button>
         <span className="inline-block">{todo.text}</span>
       </div>
