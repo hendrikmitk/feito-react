@@ -5,7 +5,8 @@
     "dev": "vite",
     "dev:expose": "vite --host",
     "build": "vite build",
-    "serve": "vite preview"
+    "serve": "vite preview",
+    "format": "prettier . --write"
   },
   "dependencies": {
     "@emotion/react": "^11.8.2",
