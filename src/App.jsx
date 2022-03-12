@@ -2,12 +2,14 @@ import React, { useState, useEffect } from 'react';
 import TodoFilter from './components/TodoFilter';
 import TodoInput from './components/TodoInput';
 import TodoList from './components/TodoList';
+import TodoSearch from './components/TodoSearch';
 
 const App = () => {
   const [inputText, setInputText] = useState('');
   const [todos, setTodos] = useState([]);
   const [filterStatus, setFilterStatus] = useState('all');
   const [filteredTodos, setFilteredTodos] = useState([]);
+  const [searchString, setSearchString] = useState('');
 
   useEffect(() => {
     getLocalTodos();
@@ -43,9 +45,13 @@ const App = () => {
 
   return (
     <div
-      className={`bg-blue-dark font-spartan flex min-h-full flex-col justify-between px-6 py-8 font-light text-white`}
+      className={`flex min-h-full flex-col justify-between bg-blue-dark px-6 py-8 font-spartan font-light text-white`}
     >
       <div>
+        <TodoSearch
+          searchString={searchString}
+          setSearchString={setSearchString}
+        />
         <h1 className="pt-8 pb-4 text-2xl">
           {new Date().toLocaleDateString('en-us', {
             weekday: 'long',
