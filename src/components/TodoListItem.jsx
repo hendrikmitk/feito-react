@@ -1,5 +1,9 @@
 import React from 'react';
-import { CheckCircle, RadioButtonUnchecked } from '@mui/icons-material';
+import {
+  CheckCircle,
+  RadioButtonUnchecked,
+  RemoveCircle,
+} from '@mui/icons-material';
 
 const TodoListItem = ({ todo, todos, setTodos }) => {
   const deleteTodoHandler = () => {
@@ -33,7 +37,7 @@ const TodoListItem = ({ todo, todos, setTodos }) => {
         <span className="inline-block">{todo.text}</span>
       </div>
       <button onClick={deleteTodoHandler} type="button">
-        <i className="fas fa-minus-circle text-xl text-red-400"></i>
+        <RemoveCircle className="text-red-400" />
       </button>
     </li>
   );

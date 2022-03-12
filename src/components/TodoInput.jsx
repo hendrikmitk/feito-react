@@ -1,5 +1,6 @@
 import React from 'react';
 import { v4 as uuidv4 } from 'uuid';
+import { Add } from '@mui/icons-material';
 
 const TodoInput = ({ inputText, setInputText, todos, setTodos }) => {
   const inputTextHandler = (e) => {
@@ -33,7 +34,7 @@ const TodoInput = ({ inputText, setInputText, todos, setTodos }) => {
         className="absolute left-6 bottom-1/2 translate-y-1/2"
         onClick={submitTodoHandler}
       >
-        <i className="fas fa-plus"></i>
+        <Add />
       </button>
     </form>
   );
